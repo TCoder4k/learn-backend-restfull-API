@@ -1,0 +1,27 @@
+{
+  "name": "backend-restfulapi-server-nodejs",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TCoder4k/learn-backend-restfull-API.git"
+  },
+  "keywords": [
+    "nodejs",
+    "react"
+  ],
+  "author": "TCoder4k",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TCoder4k/learn-backend-restfull-API/issues"
+  },
+  "homepage": "https://github.com/TCoder4k/learn-backend-restfull-API#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
