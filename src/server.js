@@ -12,7 +12,7 @@ const hostname = process.env.HOST_NAME;
 configViewEngine(app);
 
 //define route
-app.use("/test", webRoutes);
+app.use("/", webRoutes);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

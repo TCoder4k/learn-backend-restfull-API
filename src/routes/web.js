@@ -1,13 +1,11 @@
 const express = require("express");
+const { getHomePage, getAboutPage } = require("../controllers/homeController");
 
 const router = express.Router();
 
 //define route
-router.get("/", (req, res) => {
-  res.send("<h1>Hello World! & TCODER4K <h1>");
-});
-router.get("/about", (req, res) => {
-  res.render("sample.ejs");
-});
+//router.Method('/router', handler)
+router.get("/", getHomePage);
+router.get("/about", getAboutPage);
 
 module.exports = router; //export default(this file has exported only 1 variable )
