@@ -11,6 +11,9 @@ const port = process.env.PORT || 3001;
 // config template engine
 configViewEngine(app);
 
+//config req.body
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 //connection db
 
 //querry db

@@ -6,8 +6,13 @@ const getHomePage = (req, res) => {
 const getAboutPage = (req, res) => {
   res.render("sample.ejs");
 };
+const postCreateUser = (req, res) => {
+  console.log(">>>Check req.body", req.body);
+  res.send("Create new user");
+};
 
 module.exports = {
   getHomePage,
   getAboutPage,
+  postCreateUser,
 };
