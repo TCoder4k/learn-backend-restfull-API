@@ -17,14 +17,14 @@ app.use(express.urlencoded({ extended: true }));
 //connection db
 
 //querry db
-connection.query("SELECT * FROM Users ", function (err, results, fields) {
-  if (err) {
-    console.log(err);
-    return;
-  }
+// connection.query("SELECT * FROM Users ", function (err, results, fields) {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   }
 
-  // console.log("results: ", results);
-});
+//   // console.log("results: ", results);
+// });
 
 //define route
 app.use("/", webRoutes);

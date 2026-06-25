@@ -1,8 +1,15 @@
 const connection = require("../config/database");
-
-const getHomePage = (req, res) => {
-  return res.render("home.ejs");
+//Display View Home and passing data
+const getHomePage = async (req, res) => {
+  try {
+    const [rows] = await connection.query("SELECT * FROM Users");
+    res.render("home.ejs", { users: rows });
+  } catch (error) {
+    console.error("Lỗi khi lấy danh sách:", error);
+    res.status(500).send("Không thể lấy danh sách người dùng");
+  }
 };
+
 const getAboutPage = (req, res) => {
   res.render("sample.ejs");
 };
