@@ -23,7 +23,7 @@ connection.query("SELECT * FROM Users ", function (err, results, fields) {
     return;
   }
 
-  console.log("results: ", results);
+  // console.log("results: ", results);
 });
 
 //define route
