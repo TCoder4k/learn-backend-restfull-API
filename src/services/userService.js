@@ -1,5 +1,6 @@
 const connection = require("../config/database");
-//get all user
+
+//display all user
 const getAllUsers = async () => {
   const [rows] = await connection.query("SELECT * FROM Users");
   return rows;
@@ -15,8 +16,13 @@ const createUser = async (email, name, city) => {
 };
 
 //edit user
+const getUserById = async (id) => {
+  const [rows] = await pool.query("SELECT * FROM Users WHERE id = ?", [id]);
+  return rows[0];
+};
+
 const updateUser = async (id, name, city) => {
-  const [result] = await connection.query(
+  const [result] = await pool.query(
     "UPDATE Users SET name = ?, city = ? WHERE id = ?",
     [name, city, id],
   );
@@ -31,4 +37,10 @@ const deleteUser = async (id) => {
   return result.affectedRows;
 };
 
-module.exports = { getAllUsers, createUser, updateUser, deleteUser };
+module.exports = {
+  getAllUsers,
+  createUser,
+  updateUser,
+  getUserById,
+  deleteUser,
+};
