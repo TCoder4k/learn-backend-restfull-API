@@ -37,6 +37,7 @@ const postCreateUser = async (req, res) => {
 const getEditUserPage = async (req, res) => {
   try {
     const userId = req.params.id;
+    //Notify to service to get user has id = userId
     const user = await userService.getUserById(userId);
     res.render("editUser.ejs", { user });
   } catch (err) {
@@ -48,8 +49,8 @@ const getEditUserPage = async (req, res) => {
 // Xử lý update user
 const postUpdateUser = async (req, res) => {
   try {
-    const { id, name, city } = req.body;
-    await userService.updateUser(id, name, city);
+    const { id, email, name, city } = req.body;
+    await userService.updateUser(id, email, name, city);
     res.redirect("/"); // quay lại danh sách
   } catch (err) {
     console.error("Lỗi khi update:", err);
@@ -57,10 +58,24 @@ const postUpdateUser = async (req, res) => {
   }
 };
 
+//delete user
+const deleteUser = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    await userService.deleteUser(userId);
+    res.redirect("/"); // quay lại danh sách sau khi xóa
+  } catch (err) {
+    console.error("Lỗi khi xóa:", err);
+    res.status(500).send("Xóa thất bại!");
+  }
+};
+
+//xuat module cho các file khác dùng
 module.exports = {
   getHomePage,
   postCreateUser,
   getCreateUsertPage,
   getEditUserPage,
   postUpdateUser,
+  deleteUser,
 };

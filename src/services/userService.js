@@ -17,14 +17,16 @@ const createUser = async (email, name, city) => {
 
 //edit user
 const getUserById = async (id) => {
-  const [rows] = await pool.query("SELECT * FROM Users WHERE id = ?", [id]);
+  const [rows] = await connection.query("SELECT * FROM Users WHERE id = ?", [
+    id,
+  ]);
   return rows[0];
 };
 
-const updateUser = async (id, name, city) => {
-  const [result] = await pool.query(
-    "UPDATE Users SET name = ?, city = ? WHERE id = ?",
-    [name, city, id],
+const updateUser = async (id, email, name, city) => {
+  const [result] = await connection.query(
+    "UPDATE Users SET email = ?,name = ?, city = ? WHERE id = ?",
+    [email, name, city, id],
   );
   return result.affectedRows;
 };

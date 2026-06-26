@@ -5,6 +5,7 @@ const {
   getCreateUsertPage,
   getEditUserPage,
   postUpdateUser,
+  deleteUser,
 } = require("../controllers/homeController");
 
 const router = express.Router();
@@ -17,6 +18,6 @@ router.post("/create-user", postCreateUser);
 router.get("/edit-user/:id", getEditUserPage);
 router.post("/update-user", postUpdateUser);
 
-// router.get("/delete-user/:id", deleteUser);
+router.get("/delete-user/:id", deleteUser);
 
 module.exports = router; //export default(this file has exported only 1 variable )

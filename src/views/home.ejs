@@ -104,9 +104,11 @@
                                     </a>
 
                                     <a href="/delete-user/<%= user.id %>"
-                                        class="btn btn-danger btn-sm">
+                                        class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Bạn có chắc chắn muốn xoá user này không?')">
                                         Delete
                                     </a>
+
                                 </td>
 
                             </tr>
